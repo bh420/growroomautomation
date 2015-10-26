@@ -1,9 +1,11 @@
 <?php
 
 include ('db112345b.php');
+include ('base2.php');
 date_default_timezone_set('EST');
 
 function fnFlagEventInProccess($intThresholdEventID, $booFlagorUnflag) {
+	echo "<br>UUU<br>xx<br> in FlagEventInProcess function";
 # Depending on val of booFlagorUnflag, we will either set either to true or false
 	if ($booFlagorUnflag == 0) {
 		$sqlInProcess = "UPDATE `tblthresholdevents` SET `booInProcess`=1 WHERE intThresholdEventID=" . $intThresholdEventID;
@@ -62,7 +64,7 @@ function fnFixClimate($intThresholdEventID) {
 #Looks up Sensor info for ThresholdEvent (including Thresholds and RelayMapping)
 #Looks up appropriate Relay to activate via RelayMapping table for that particular sensor
 #More TBD (do we run shell script w/ parameters to activate relay off PLC board)
-	$booFlagSuccess = fnFlagEventInProccess($intThresholdEventID, 0);
+#	$booFlagSuccess = fnFlagEventInProccess($intThresholdEventID, 0);
 	$intSensorID = fnGetEventData($intThresholdEventID, 1);
 	$intRelayID = fnGetRelayNum($intSensorID);
 	
