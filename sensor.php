@@ -7,7 +7,7 @@ $sensorValue = $_GET["value"];
 #Lookup Sensor w/ SensorID passed
 #Verify if individual threshhold is set for sensor, if not look at sensor type threshhold
 #Record threshold min/max values into memory then make sure the $sensorValue falls between them.
-# 10/25/15 - LAF (Late as Fuck!)
+# 10/25/15 - 
 
 $booExistingEvents =  fnGetExistingEvents($intSensorID, $sensorValue);
 if ($booExistingEvents == 1) {

@@ -2,8 +2,6 @@
 include ('base.php');
 $intThresholdEventID = $_GET['evtid'];
 $intSensorID = fnGetEventData($intThresholdEventID, 1);
-#echo "DIE but here is intSensorID var" . $intSensorID; die();
-#echo "<br>!<br>!<br>fnChkSensorTH: " . fnChkSensorTH(14,0);
 $intMinValTH = fnChkSensorTH($intSensorID,0);
 $intMaxValTH = fnChkSensorTH($intSensorID,1);
 $intMedValTH = (round((($intMaxValTH - $intMinValTH) / 2),2) + $intMinValTH);

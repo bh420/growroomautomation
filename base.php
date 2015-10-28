@@ -38,7 +38,7 @@ echo "<br>!?!?!? fnGEDSQL: " . $fnGEDSQL;
 	$linkged = mysqli_connect('localhost', 'root', '', 'climatecontroldata');  
   	$EventData = mysqli_query($linkged , $fnGEDSQL);
   	#$rsEventData = mysqli_fetch_assoc($EventData);
-  	$intResCount = mysqli_num_rows($EventData);
+  	$intResCount = @mysqli_num_rows($EventData);
 	$intCols = mysqli_field_count($linkged);
 	
 	if ($intColIndex <= $intCols) {
@@ -111,7 +111,7 @@ function fnChkSensorTH($intSensorID, $booMinorMax) {
   	if (isset($rsNumRows) AND $rsNumRows == 0)
   	{
 	  	echo "IN SENSORTYPE THRESHOLD LOOKUP LOOP";
-# IF NOTHING HITS ON THE SENSOR ID WE NEED TO CHECK THE FUCKING TYPE!!!
+
 		unset($SensorThresholdSQL);
 		unset($SensorThreshold);
 		$SensorThresholdSQL = "SELECT * FROM `tblsensorthresholds` WHERE intSensorTypeID=" . $intSensorTypeID;
